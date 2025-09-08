@@ -1,0 +1,108 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<body class="left-sidebar is-preload">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        {% include 'header.html' %}
+
+        <!-- Main -->
+        <article id="main">
+
+            <header class="special container">
+                <span class="icon solid fa-box"></span>
+                <h2>محصولات ما</h2>
+                <p>مجموعه‌ای از محصولات و ابزارهای ما برای امنیت سایبری کسب‌وکار شما</p>
+            </header>
+
+            <section class="wrapper style4 container">
+                {% for product in products %}
+                    <header style="text-align:center; margin-bottom: 20px;">
+                        <h2>{{ product.title }}</h2>
+                    </header>
+
+                    <div class="row gtr-150">
+                        {% if forloop.counter|divisibleby:2 %}
+                            <!-- Image Left - Text Right -->
+                            <div class="col-7 col-12-narrower imp-narrower">
+                                <div class="content">
+                                    <section>
+                                        <a href="{% url 'product' product.id %}" class="image featured">
+                                            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                                        </a>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="col-5 col-12-narrower">
+                                <div class="sidebar">
+                                    <section>
+                                        <p>{{ product.description|truncatewords:30 }}</p>
+
+                                        <footer>
+                                            <ul class="buttons">
+                                                <li><a href="{% url 'product' product.id %}" class="button small">بیشتر بخوانید</a></li>
+                                            </ul>
+                                        </footer>
+                                        <hr>
+                                        {% if product.use_cases %}
+                                            <h3>موارد استفاده:</h3>
+                                            <ul>
+                                                {% for use_case in product.use_cases.splitlines %}
+                                                    <li>{{ use_case }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </section>
+                                </div>
+                            </div>
+                        {% else %}
+                            <!-- Text Left - Image Right -->
+                            <div class="col-5 col-12-narrower">
+                                <div class="sidebar">
+                                    <section>
+                                        <p>{{ product.description|truncatewords:30 }}</p>
+
+                                        <footer>
+                                            <ul class="buttons">
+                                                <li><a href="{% url 'product' product.id %}" class="button small">بیشتر بخوانید</a></li>
+                                            </ul>
+                                        </footer>
+                                        <hr>
+                                        {% if product.use_cases %}
+                                            <h3>موارد استفاده:</h3>
+                                            <ul>
+                                                {% for use_case in product.use_cases.splitlines %}
+                                                    <li>{{ use_case }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="col-7 col-12-narrower imp-narrower">
+                                <div class="content">
+                                    <section>
+                                        <a href="{% url 'product' product.id %}" class="image featured">
+                                            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                                        </a>
+                                    </section>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <hr>
+                {% endfor %}
+
+            </section>
+
+        </article>
+
+        <!-- Footer -->
+        {% include 'footer.html' %}
+    </div>
+</body>
+
+{% endblock %}

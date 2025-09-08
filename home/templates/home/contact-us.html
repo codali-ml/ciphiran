@@ -1,0 +1,62 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<body class="contact is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+            {% include 'header.html' %}
+
+
+			<!-- Main -->
+				<article id="main">
+
+					<header class="special container">
+						<span class="icon solid fa-envelope"></span>
+						<h2>تماس با ما</h2>
+						<p>برای دریافت مشاوره رایگان، پرسش درباره محصولات یا درخواست همکاری می‌توانید از طریق فرم زیر یا اطلاعات تماس اقدام کنید</p>
+					</header>
+
+					<!-- One -->
+						<section class="wrapper style4 special container medium">
+
+							<!-- Content -->
+								<div class="content">
+                                    <form method="post" action="">
+                                        {% csrf_token %}
+                                        <div class="row gtr-50">
+                                            <div class="col-6 col-12-mobile">
+                                                <input type="text" name="name" placeholder="نام و نام خانوادگی" required />
+                                            </div>
+                                            <div class="col-6 col-12-mobile">
+                                                <input type="email" name="email" placeholder="ایمیل" required />
+                                            </div>
+                                            <div class="col-6 col-12-mobile">
+                                                <input type="text" name="subject" placeholder="موضوع پیام" />
+                                            </div>
+                                            <div class="col-6 col-12-mobile">
+                                                <input type="text" name="phone" placeholder="شماره تلفن" required>
+                                            </div>
+                                            <div class="col-12">
+                                                <textarea name="body" placeholder="متن پیام شما ..." rows="7" required></textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                <ul class="buttons">
+                                                    <li><input type="submit" class="special" value="ارسال پیام" /></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </form>
+								</div>
+
+						</section>
+
+				</article>
+
+			<!-- Footer -->
+                    {% include 'footer.html' %}
+
+
+		</div>
+    </body>
+{% endblock %}

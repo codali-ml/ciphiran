@@ -1,0 +1,155 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<body class="contact is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+            {% include 'header.html' %}
+            <!-- Main -->
+				<article id="main">
+
+					<header class="special container">
+						<span class="icon solid fa-file-alt"></span>
+						<h2>به تیم سایفیران بپیوندید</h2>
+						<p>ما در سایفیران باور داریم که امنیت دیجیتال آینده‌ی کسب‌وکارهاست. با پیوستن به ما،
+                            <br/> بخشی از تیمی می‌شوید که روی چالش‌های واقعی امنیت سایبری کار می‌کند و فرصت رشد و یادگیری بی‌پایان دارد</p>
+					</header>
+
+					<!-- One -->
+						<section class="wrapper style4 container">
+                        <!-- Content -->
+                            <header style="text-align: center;">
+                                <h2 style="font-size: 30px; font-weight: bold;">چرا ما؟</h2>
+                                <br/>
+                            </header>
+								<div class="content">
+                                    <div class="row">
+
+                                        
+                                        <div class="col-3 col-12-narrower">
+                                            <section style="text-align: center;">
+										        <span class="icon solid featured fa-rocket"></span>
+                                                <header>
+                                                    <h3>محیط کاری پویا</h3>
+                                                </header>
+                                            </section>
+
+                                            
+
+                                        </div>
+                                        <div class="col-3 col-12-narrower">
+
+                                            <section style="text-align: center;">
+										        <span class="icon solid featured fa-graduation-cap"></span>
+                                                <header>
+                                                    <h3>فرصت رشد و یادگیری</h3>
+                                                </header>
+                                            </section>
+
+                                        </div>
+                                        <div class="col-3 col-12-narrower">
+
+                                            <section style="text-align: center;">
+ 										        <span span class="icon solid featured fa-puzzle-piece"></span>
+                                                <header>
+                                                    <h3>پروژه‌های چالش‌برانگیز</h3>
+                                                </header>
+                                            </section>
+                                        </div>
+                                        <div class="col-3 col-12-narrower">
+                                            <section style="text-align: center;">
+								        		<span class="icon solid featured fa-users"></span>
+                                                <header>
+                                                    <h3>تیم حرفه‌ای و دوستانه</h3>
+                                                </header>
+                                            </section>
+                                        </div>
+
+                                            <section class="wrapper style4 container">
+                                             <a href="#" class="image featured"><img src="{% static 'images/careers.png' %}" alt="" /></a>
+                                                <h2 style="text-align: center;">فرم درخواست همکاری</h2>
+                                                <p style="text-align: center;">لطفاً اطلاعات خود را کامل کنید و رزومه خود را ارسال کنید</p>
+                                            <!-- Content -->
+                                                <div class="content">
+                                                    <form method="post" action="" enctype="multipart/form-data">
+                                                        {% csrf_token %}
+                                                        <div class="row gtr-25">
+                                                            <div class="col-6 col-12-mobile">
+                                                                <input type="text" name="name" placeholder="نام و نام خانوادگی" required />
+                                                            </div>
+
+                                                            <div class="col-6 col-12-mobile">
+                                                                <input type="email" name="email" placeholder="ایمیل" required />
+                                                            </div>
+
+                                                            <div class="col-6 col-12-mobile">
+                                                                <input type="text" name="phone" placeholder="شماره تماس" required />
+                                                            </div>
+
+                                                            <div class="col-6 col-12-mobile">
+                                                                <input type="text" name="position" placeholder="عنوان شغلی درخواستی" required />
+                                                            </div>
+
+                                                            <div class="col-12">
+                                                                <input type="text" name="location" placeholder="محل سکونت" />
+                                                            </div>
+                                                            <div class="col-6 col-12-mobile">
+                                                                <select name="employment_type" required style="color: #7c80818f;">
+                                                                    <option value="">نوع همکاری</option>
+                                                                    <option value="FT">تمام وقت</option>
+                                                                    <option value="PT">پاره وقت</option>
+                                                                    <option value="PR">پروژه‌ای</option>
+                                                                    <option value="IN">کارآموزی</option>
+                                                                </select>
+                                                            </div>
+                                                                <div class="career-file-upload">
+                                                                <input type="file" name="resume" id="resume" accept=".pdf,.doc,.docx" required>
+                                                                <label for="resume" class="btn-file"> انتخاب رزومه</label>
+                                                                <span class="file-name">فایلی انتخاب نشده</span>
+                                                                </div>
+
+
+                                                            <div class="col-6 col-12-mobile">
+                                                                <ul class="buttons">
+                                                                    <li><input type="submit" class="special" value="ارسال درخواست" /></li>
+                                                                </ul>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                        </section>
+                                    </div>
+								</div>
+						</section>
+
+
+				</article>
+
+			<!-- Footer -->
+                {% include 'footer.html' %}
+
+		</div>
+	</body>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const fileInput = document.getElementById("resume");
+  const fileNameSpan = document.querySelector(".career-file-upload .file-name");
+
+  fileInput.addEventListener("change", function () {
+    if (fileInput.files.length > 0) {
+      fileNameSpan.textContent = fileInput.files[0].name;
+      fileNameSpan.style.color = "#333"; // make it darker when chosen
+    } else {
+      fileNameSpan.textContent = "فایلی انتخاب نشده";
+      fileNameSpan.style.color = "#888";
+    }
+  });
+});
+</script>
+
+
+{% endblock %}

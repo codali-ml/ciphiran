@@ -1,0 +1,223 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<body class="index is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header" class="alt">
+					<nav id="nav">
+						<ul>
+							<li><a href="{% url 'home' %}" class="button primary" style="border-radius:50px;">خانه</a></li>
+
+							<li class="current"><a href="{% url 'contact' %}">تماس با ما</a></li>
+							<li class="current"><a href="{% url 'aboutUs' %}">درباره ما</a></li>
+							<li class="current"><a href="{% url 'services' %}">خدمات</a></li>
+							<li class="current"><a href="{% url 'careers' %}">فرصت‌های شغلی</a></li>
+							<li class="current"><a href="{% url 'products' %}">محصولات</a></li>
+							
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Banner -->
+				<section id="banner">
+
+					<!--
+						".inner" is set up as an inline-block so it automatically expands
+						in both directions to fit whatever's inside it. This means it won't
+						automatically wrap lines, so be sure to use line breaks where
+						appropriate (<br />).
+					-->
+					<div class="inner">
+
+						<header >
+								<h2 style="display: flex; align-items: center; padding-left: 15px; padding-right: 15px;">
+								سایفیران
+								<img src="{% static 'images/icon-white.png' %}" style="width: 65px; margin-right: 10px;">
+								</h2>
+						</header>
+						<p>راهکارهای نوین <span style="font-weight: 800;">امنیت سایبری</span>
+						<br />
+						برای سازمان‌ها و کسب‌وکارهای هوشمند
+						
+						<footer>
+							<ul class="buttons stacked">
+								<li><a href="{% url 'aboutUs' %}" class="button fit scrolly" style="min-width: auto; width: 250px;">بیشتر بدانید</a></li>
+							</ul>
+						</footer>
+
+					</div>
+
+				</section>
+
+			<!-- Main -->
+				<article id="main">
+					<header class="special container">
+						<span class="icon solid fa-home"></span>
+						<h2>امنیت دیجیتال مطمئن، با راهکارهای <strong>سایفیران</strong>
+						<br />
+						<p>ما در سایفیران با ارائه نرم‌افزارها و خدمات امنیتی پیشرفته، 
+     به سازمان‌ها کمک می‌کنیم تا زیرساخت‌های فناوری اطلاعات خود را 
+     در برابر تهدیدات سایبری محافظت کنند
+						</p>
+					</header>
+
+					<!-- One -->
+						<section class="wrapper style2 container special-alt">
+							<div class="row gtr-50">
+								<div class="col-8 col-12-narrower">
+
+									<header>
+										<h2 style="font-size: 36px;">ویژگی‌ها و مزایای کلیدی راهکارهای ما</h2>
+									</header>
+									<p>راهکارهای ما بر پایه فناوری‌های نوین امنیت سایبری طراحی شده‌اند 
+   تا از داده‌ها، شبکه‌ها و سامانه‌های سازمانی شما در برابر حملات و نفوذها محافظت کنند</p>
+									<footer>
+										<ul class="buttons">
+											<li><a href="#" class="button">مشاهده محصولات</a></li>
+										</ul>
+									</footer>
+
+								</div>
+								<div class="col-4 col-12-narrower imp-narrower">
+
+									<ul class="featured-icons">
+										<li><span class="icon fa-clock"><span class="label">Feature 1</span></span></li>
+										<li><span class="icon solid fa-laptop-code"><span class="label">Feature 3</span></span></li>
+										<li><span class="icon solid fa-shield-alt"><span class="label">Feature 5</span></span></li>
+										<li><span class="icon solid fa-cogs"><span class="label">Feature 6</span></span></li>
+									</ul>
+
+								</div>
+							</div>
+						</section>
+
+					<!-- Two -->
+						<section class="wrapper style1 container special">
+							<div class="row">
+								<div class="col-4 col-12-narrower">
+
+									<section>
+										<span class="icon solid featured fa-user-shield"></span>
+										<header>
+											<h3>مشاوره امنیتی</h3>
+										</header>
+										<p>تحلیل وضعیت امنیت سازمان و ارائه راهکارهای بهینه</p>
+									</section>
+
+								</div>
+								<div class="col-4 col-12-narrower">
+
+									<section>
+										<span class="icon solid featured fa-code"></span>
+										<header>
+											<h3>راهکارهای نرم‌افزاری</h3>
+										</header>
+										<p>ابزارهای قدرتمند امنیت سایبری برای شناسایی و مقابله با تهدیدات</p>
+									</section>
+
+								</div>
+								<div class="col-4 col-12-narrower">
+
+									<section>
+										<span class="icon solid featured fa-chalkboard-teacher"></span>
+										<header>
+											<h3>پشتیبانی و آموزش</h3>
+										</header>
+										<p>تیم متخصص برای پشتیبانی و ارتقاء سطح امنیت کارکنان</p>
+									</section>
+
+								</div>
+							</div>
+						</section>
+
+					<!-- Three -->
+						<section class="wrapper style3 container special">
+
+							<header class="major">
+								<h2>راهکارهای <strong>سایفیران</strong> برای صنایع مختلف</h2>
+							</header>
+
+							<div class="row">
+								<div class="col-6 col-12-narrower">
+
+									<section>
+										<a href="#" class="image featured"><img src="{% static 'images/home-page1.png' %}" alt="" /></a>
+										<header>
+											<h3>حفاظت شبکه سازمانی</h3>
+										</header>
+										<p>راهکاری جامع برای ایمن‌سازی زیرساخت‌های شبکه در برابر حملات سایبری و نفوذهای پیچیده</p>
+									</section>
+
+								</div>
+								<div class="col-6 col-12-narrower">
+
+									<section>
+										<a href="#" class="image featured"><img src="{% static 'images/home-page2.png' %}" alt="" /></a>
+										<header>
+											<h3>مدیریت هویت و دسترسی</h3>
+										</header>
+										<p>کنترل دقیق سطح دسترسی کاربران و جلوگیری از سوء‌استفاده‌های داخلی و خارجی</p>
+									</section>
+
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-6 col-12-narrower">
+
+									<section>
+										<a href="#" class="image featured"><img src="{% static 'images/home-page3.jpg' %}" alt="" /></a>
+										<header>
+											<h3>محافظت از داده‌های ابری</h3>
+										</header>
+										<p>تضمین امنیت داده‌ها و سرویس‌های ابری با رمزنگاری و مانیتورینگ پیشرفته</p>
+									</section>
+
+								</div>
+								<div class="col-6 col-12-narrower">
+
+									<section>
+										<a href="#" class="image featured"><img src="{% static 'images/home-page4.png' %}" alt="" /></a>
+										<header>
+											<h3>راهکارهای امنیتی برای صنایع حساس</h3>
+										</header>
+										<p>راهکارهای ویژه برای بانکداری، سلامت و صنایع زیرساختی حیاتی با سطح امنیت بالا</p>
+									</section>
+
+								</div>
+							</div>
+
+							<footer class="major">
+								<ul class="buttons">
+									<li><a href="{% url 'services' %}" class="button" style="min-width: auto; width: 250px;">بیشتر ببینید</a></li>
+								</ul>
+							</footer>
+
+						</section>
+
+				</article>
+
+			<!-- CTA -->
+				<section id="cta">
+
+					<header>
+						<h2>آماده‌اید سطح امنیت سازمان خود را ارتقا دهید؟</h2>
+						<p>برای دریافت مشاوره رایگان و دموی محصولات، همین حالا با ما تماس بگیرید</p>
+					</header>
+					<footer>
+						<ul class="buttons">
+							<li><a href="{% url 'contact' %}" class="button primary">درخواست مشاوره</a></li>
+							<li><a href="{% url 'products' %}" class="button">مشاهده محصولات</a></li>
+						</ul>
+					</footer>
+
+				</section>
+
+			<!-- Footer -->
+			{% include 'footer.html' %}
+
+
+		</div>
+</body>
+{% endblock  %}

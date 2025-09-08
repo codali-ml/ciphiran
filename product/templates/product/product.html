@@ -1,0 +1,94 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div id="page-wrapper">
+
+    <!-- Header -->
+    {% include 'header.html' %}
+
+    <!-- Main -->
+    <article id="main">
+
+        <!-- Product Header -->
+        <header class="special container">
+            <span class="icon solid fa-box"></span>
+            <h2>{{ product.title }}</h2>
+        </header>
+
+        <!-- Product Details -->
+        <section class="wrapper style4 container">
+            <div class="content">
+                <section>
+                    <!-- Product Image -->
+                    {% if product.image %}
+                        <a href="#" class="image featured">
+                            <img src="{{ product.image.url }}" alt="{{ product.title }}" loading="lazy">
+                        </a>
+                    {% else %}
+                        <a href="#" class="image featured">
+                            <img src="{% static 'images/default_product.jpg' %}" alt="محصول پیش‌فرض" loading="lazy">
+                        </a>
+                    {% endif %}
+
+                    <!-- Product Description -->
+                    <p>{{ product.description }}</p>
+
+                    <!-- Features -->
+                    {% if product.features %}
+                        <h3>ویژگی‌ها:</h3>
+                        <ul>
+                            {% for feature in product.features.splitlines %}
+                                <li>{{ feature }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    <!-- Use Cases -->
+                    {% if product.use_cases %}
+                        <h3>موارد استفاده:</h3>
+                        <ul>
+                            {% for use_case in product.use_cases.splitlines %}
+                                <li>{{ use_case }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </section>
+
+        <!-- Inquiry Form -->
+
+                <header style="text-align:center;">
+                    <h3>درخواست مشاوره درباره این خدمت</h3>
+                </header>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row gtr-25">
+                        <div class="col-4 col-12-mobile">
+                            <input type="text" name="name" placeholder="نام و نام خانوادگی" required>
+                        </div>
+                        <div class="col-4 col-12-mobile">
+                            <input type="email" name="email" placeholder="ایمیل" required>
+                        </div>
+                        <div class="col-4 col-12-mobile">
+                            <input type="text" name="phone" placeholder="شماره تلفن" required>
+                        </div>
+                        <div class="col-12">
+                            <textarea name="message" placeholder="پیام شما..." rows="6" required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <ul class="buttons">
+                                <li><input type="submit" class="special" value="ارسال درخواست"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </article>
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
+
+</div>
+
+{% endblock %}

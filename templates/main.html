@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>ciphiran</title>
+  <link rel="icon" type="image/x-icon" href="{% static 'images/icon.png' %}" style="width: 500px; height: auto;">
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
+  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/fontawesome-all.min.css' %}">
+  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/noscript.css' %}">
+  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/fontiran.css' %}">
+
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+  <style>
+    #banner{
+      background-image: url("{% static 'images/light-bl.svg'%}"), url("{% static 'images/light-br.svg'%}"), url("{% static 'images/overlay.png'%}"), url("{% static 'images/banner.jpg'%}");
+    }
+    #cta {
+		background-image: url("{% static 'images/light-tl.svg'%}"), url("{% static 'images/light-tr.svg'%}"), url("{% static 'images/overlay.png'%}"), url("{% static 'images/banner.jpg'%}");
+    }
+    .image:before {
+			background: url("{% static 'images/overlay.png'%}");
+    }
+    .wrapper.style2{
+			background-image: url("{% static 'images/light-bl.svg'%}"), url("{% static 'images/light-br.svg'%}");
+    }
+    #main{
+		background-image: url("{% static 'images/dark-tl.svg'%}"), url("{% static 'images/dark-tr.svg'%}"), url("{% static 'images/dark-bl.svg'%}"), url("{% static 'images/dark-br.svg'%}");
+    }
+  </style>
+</head>
+<body>
+    {% if messages %}
+
+    {% for message in messages %}
+    <div class="alert  actions">
+        {{ message }}
+        <span class="massage-close" style="padding-right: 15px; cursor: pointer;" onclick="this.parentElement.style.display='none';">&times;</span>
+
+    </div>
+
+    {% endfor %}
+
+    {% endif %}
+
+
+
+    {% block content %}
+    {% endblock %}
+
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/browser.min.js' %}"></script>
+  <script src="{% static 'js/jquery.dropotron.min.js' %}"></script>
+  <script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+  <script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/util.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/breakpoints.min.js' %}"></script>
+
+  </body>
+</html>

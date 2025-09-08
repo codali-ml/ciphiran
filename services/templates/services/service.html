@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+        {% include 'header.html' %}
+
+			<!-- Main -->
+				<article id="main">
+					<header class="special container">
+						<span class="icon solid fa-shield-alt"></span>
+						<h2>{{ service.title }}</h2>
+					</header>
+					<!-- One -->
+						<section class="wrapper style4 container">
+							<!-- Content -->
+								<div class="content">
+									<section>
+										<a href="#" class="image featured"><img src="{{ service.image.url }}" alt="{{ service.title }}" /></a>
+
+										<p>{{ service.description}}</p>
+									</section>
+								</div>
+
+
+                                <hr>
+                                <section class="wrapper style4 container">
+                                    <div class="content">
+                                        <header style="text-align:center;">
+                                            <h3>درخواست مشاوره درباره این خدمت</h3>
+                                        </header>
+                                        <form method="post">
+                                            {% csrf_token %}
+                                            <div class="row gtr-25">
+                                                <div class="col-4 col-12-mobile">
+                                                    <input type="text" name="name" placeholder="نام و نام خانوادگی" required>
+                                                </div>
+                                                <div class="col-4 col-12-mobile">
+                                                    <input type="email" name="email" placeholder="ایمیل" required>
+                                                </div>
+                                                <div class="col-4 col-12-mobile">
+                                                    <input type="text" name="phone" placeholder="شماره تلفن" required>
+                                                </div>
+                                                <div class="col-12">
+                                                    <textarea name="message" placeholder="پیام شما..." rows="6" required></textarea>
+                                                </div>
+                                                <div class="col-12">
+                                                    <ul class="buttons">
+                                                        <li><input type="submit" class="special" value="ارسال درخواست"></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </section>
+
+						</section>
+				</article>
+
+			<!-- Footer -->
+        {% include 'footer.html' %}
+
+	</body>
+
+{% endblock %}

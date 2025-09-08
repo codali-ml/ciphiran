@@ -1,0 +1,87 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<body class="left-sidebar is-preload">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        {% include 'header.html' %}
+
+        <!-- Main -->
+        <article id="main">
+
+            <header class="special container">
+                <span class="icon solid fa-shield-alt"></span>
+                <h2>خدمات ما</h2>
+                <p>ما مجموعه‌ای از خدمات امنیت سایبری را برای محافظت از کسب‌وکار شما ارائه می‌دهیم</p>
+            </header>
+
+            <section class="wrapper style4 container">
+                {% for service in services %}
+                    <header style="text-align:center; margin-bottom: 20px;">
+                        <h2>{{ service.title }}</h2>
+                    </header>
+
+                    <div class="row gtr-150">
+                        {% if forloop.counter|divisibleby:2 %}
+                            <!-- Image Left - Text Right -->
+                            <div class="col-7 col-12-narrower imp-narrower">
+                                <div class="content">
+                                    <section>
+                                        <a href="{% url 'service' service.id %}" class="image featured">
+                                            <img src="{{ service.image.url }}" alt="{{ service.title }}">
+                                        </a>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="col-5 col-12-narrower">
+                                <div class="sidebar">
+                                    <section>
+                                        <p>{{ service.description|truncatewords:30 }}</p>
+                                        <footer>
+                                            <ul class="buttons">
+                                                <li><a href="{% url 'service' service.id %}" class="button small">بیشتر بخوانید</a></li>
+                                            </ul>
+                                        </footer>
+                                    </section>
+                                </div>
+                            </div>
+                        {% else %}
+                            <!-- Text Left - Image Right -->
+                            <div class="col-5 col-12-narrower">
+                                <div class="sidebar">
+                                    <section>
+                                        <p>{{ service.description|truncatewords:30 }}</p>
+                                        <footer>
+                                            <ul class="buttons">
+                                                <li><a href="{% url 'service' service.id %}" class="button small">بیشتر بخوانید</a></li>
+                                            </ul>
+                                        </footer>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="col-7 col-12-narrower imp-narrower">
+                                <div class="content">
+                                    <section>
+                                        <a href="{% url 'service' service.id %}" class="image featured">
+                                            <img src="{{ service.image.url }}" alt="{{ service.title }}">
+                                        </a>
+                                    </section>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <hr>
+                {% endfor %}
+
+            </section>
+
+        </article>
+
+        <!-- Footer -->
+        {% include 'footer.html' %}
+    </div>
+</body>
+
+{% endblock %}
